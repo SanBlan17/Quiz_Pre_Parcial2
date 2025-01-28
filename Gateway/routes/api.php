@@ -21,7 +21,7 @@ Route::get('/bands', [BandsController::class,"index"]);
 Route::get('/bands/{id}', [BandsController::class,"show"]);
 
 Route::get('/genres', [GenresController::class,"index"]);
-Route::get('/bands/{id}', [GenresController::class,"show"]);
+Route::get('/genres/{id}', [GenresController::class,"show"]);
 
 Route::post('/generate_labels/{n}', [RecordLabelsController::class,"generate"]);
 Route::get('/record_labels', [RecordLabelsController::class,"index"]);

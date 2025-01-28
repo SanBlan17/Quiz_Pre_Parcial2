@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Genre extends Model
 {
     use HasFactory;
-    protected $table = 'genres';
-    protected $fillable = [
-        'name',
-       
-    ];
+    
+    public function band(){
+        return $this->hasMany(Band::class, "genre_id");
+    }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
+use App\Http\Controllers\GenreController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,5 +15,14 @@ use App\Http\Controllers\BandController;
 |
 */
 
-Route::get('/bands', [BandController::class, 'index']);
+Route::middleware(['BandMiddleware'])->group(function(){
+
+    Route::get('/bands', [BandController::class, 'index']);
+    Route::get('/bands/{id}', [BandController::class, 'show']);
+    Route::get('/genres', [GenreController::class, 'index']);
+    Route::get('/genres/{id}', [GenreController::class, 'show']);
+    
+});
+
+
 

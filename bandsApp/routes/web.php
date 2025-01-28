@@ -20,10 +20,7 @@ use App\Http\Controllers\GenreController;
 Route::get('/', function () {
 
 });
-Route::get('/bands', [BandController::class, 'index']);
-Route::get('/bands/{id}', [BandController::class, 'show']);
-Route::get('/genres', [GenreController::class, 'index']);
-Route::get('/genres/{id}', [GenreController::class, 'show']);
+
 
 
 

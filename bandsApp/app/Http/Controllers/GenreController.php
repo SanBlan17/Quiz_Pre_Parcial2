@@ -8,20 +8,12 @@ use Illuminate\Http\Request;
 class GenreController extends Controller
 {
     public function index(){
-        $genres = Genre::all();
-
-        return view('genres',[
-            'genres' => $genres
-        ]);
+        $genre = Genre::with('band')->get();
+        return $genre;
     }
+
     public function show($id){
-        $genre = Genre::find($id);
-        $bands = Band::where('genre_id', '=', $id)->get();
-        
-       
-        return view('genre' ,[
-            'genre' => $genre,
-            'bands' => $bands
-        ]);
+        $genre = Genre::with('band')->findOrFail($id);
+        return $genre;
     }
 }

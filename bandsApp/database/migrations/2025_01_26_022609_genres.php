@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-        Schema::create('bands', function (Blueprint $table) {
+        Schema::create('genres', function (Blueprint $table) {
             $table->id('id');
-            $table->string('name');
-            $table->unsignedBigInteger('genre_id');
-            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade');
+            $table->string('genre_name');
             $table->timestamps();
-         
+
         });
-
-
     }
 
     /**
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bands');
+        Schema::dropIfExists('genres');
     }
 };

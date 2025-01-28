@@ -8,10 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Band extends Model
 {
     use HasFactory;
-    protected $table = 'bands';
-    protected $fillable = [
-        'name',
-        'genre_id',
-    ];
-
+    
+    public function genre(){
+        return $this->belongsTo(Genre::class);
+    }
 }
